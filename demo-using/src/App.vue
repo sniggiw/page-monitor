@@ -1,7 +1,9 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import DemoUsing from './components/demo-using.vue'
+</script>
 
 <template>
-  <el-button type="primary">Primary</el-button>
+  <DemoUsing />
 </template>
 
 <style scoped></style>
