@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "version": "0.0.1",
+  "name": "page-monitor",
+  "description": "monitor some data in page",
+  "permissions": ["tabs", "webNavigation", "storage"],
+  "background": {
+    "service_worker": "./background/index.js",
+    "type": "module"
+  },
+  "externally_connectable": {
+    "matches": ["*://*.example.com/*"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["./content/index.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
