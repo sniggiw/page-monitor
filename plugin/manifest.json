@@ -9,6 +9,7 @@
     "48": "./icon/icon48.png",
     "64": "./icon/icon64.png"
   },
+  "permissions": ["tabs"],
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
