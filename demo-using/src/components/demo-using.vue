@@ -25,7 +25,7 @@ const onMonitor = () => {
 <template>
   <main>
     <h1>page monitor demo using</h1>
-    <el-form :model="form" label-width="auto" :inline="false" size="large">
+    <el-form :model="form" label-width="auto" :inline="false" size="large" label-position="left">
       <el-form-item label="监控id">
         <el-input v-model="form.monitor_id"></el-input>
       </el-form-item>

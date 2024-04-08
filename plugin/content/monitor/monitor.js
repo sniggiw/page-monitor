@@ -3,6 +3,11 @@ class Monitor {
     this.monitor_panel
     this.confirmBtn
     this.cancelBtn
+
+    this.monitorSelectBox = this.createMonitorSelectBox()
+    // 修改 this 指向
+    this.mouseoverHandler = this.mouseoverHandler.bind(this)
+    this.mouseoutHandler = this.mouseoutHandler.bind(this)
   }
 
   // 创建监控面板
@@ -53,5 +58,36 @@ class Monitor {
   initSelectPanel(params) {
     const { monitor_type } = params
     this.monitor_panel = this.createMonitorPanel(monitor_type)
+    this.addEventListeners()
+  }
+
+  // 创建 dom 元素选择框
+  createMonitorSelectBox() {
+    const monitorSelectBox = document.createElement('div')
+    monitorSelectBox.className = 'monitor_select-box'
+    document.body.appendChild(monitorSelectBox)
+    return monitorSelectBox
+  }
+
+  // 创建 dom 元素选择框后，鼠标移动事件
+  mouseoverHandler(event) {
+    const target = event.target
+    // 获取元素的位置信息
+    const targetInfo = target.getBoundingClientRect()
+    this.monitorSelectBox.style.display = 'block'
+    this.monitorSelectBox.style.width = targetInfo.width + 'px'
+    this.monitorSelectBox.style.height = targetInfo.height + 'px'
+    this.monitorSelectBox.style.top = targetInfo.top + window.scrollY + 'px'
+    this.monitorSelectBox.style.left = targetInfo.left + window.scrollX + 'px'
+  }
+
+  // 创建 dom 元素选择框后，鼠标移出事件
+  mouseoutHandler() {
+    this.monitorSelectBox.style.display = 'none'
+  }
+
+  addEventListeners() {
+    document.addEventListener('mouseover', this.mouseoverHandler)
+    document.addEventListener('mouseout', this.mouseoutHandler)
   }
 }

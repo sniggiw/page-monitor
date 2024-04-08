@@ -37,3 +37,13 @@
 .monitor_cancel {
   color: #c0392b;
 }
+
+.monitor_select-box {
+  position: absolute;
+  border: 2px solid #c0392b;
+  border-radius: 4px;
+  z-index: 999;
+
+  display: none;
+  pointer-events: none;
+}
