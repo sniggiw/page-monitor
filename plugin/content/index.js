@@ -1,3 +1,5 @@
+const monitor = new Monitor()
+
 const EventFromWebPage = 'EventFromWebPage'
 
 // 之所以使用 window.onload，是因为每次跳转新页面时都会生效，
@@ -45,5 +47,5 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 
 // 处理监听页面的初始化（初始化  monitorTool dom）
 function handleInitSelect(request) {
-  console.log('初始化 monitorTool dom')
+  monitor.initSelectPanel(request)
 }

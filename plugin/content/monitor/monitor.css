@@ -1,0 +1,39 @@
+.monitor_panel {
+  position: fixed;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  width: 500px;
+  font-size: 14px;
+  border-radius: 999999px;
+  background-color: #fff;
+  box-shadow: 0 1px 4px 0 #bdc3c7;
+}
+
+.monitor_btn-container {
+  display: flex;
+  gap: 10px;
+}
+
+.monitor_btn {
+  cursor: pointer;
+}
+
+.monitor_confirm {
+  color: #2980b9;
+}
+
+.monitor_confirm_not {
+  cursor: unset;
+  color: #ddd;
+}
+
+.monitor_cancel {
+  color: #c0392b;
+}

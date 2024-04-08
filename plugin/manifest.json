@@ -13,7 +13,8 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["./content/index.js"],
+      "js": ["./content/monitor/monitor.js", "./content/index.js"],
+      "css": ["./content/monitor/monitor.css"],
       "run_at": "document_idle"
     }
   ],
