@@ -35,7 +35,7 @@ function openNewPage(e) {
 
 // 注册事件监听器（接收 background 发送过来的通知）
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-  console.log('request.type', request.type)
+  console.log('request', request)
   switch (request.type) {
     case 'initSelect':
       handleInitSelect(request)
@@ -47,5 +47,6 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 
 // 处理监听页面的初始化（初始化  monitorTool dom）
 function handleInitSelect(request) {
+  console.log("params",request)
   monitor.initSelectPanel(request)
 }

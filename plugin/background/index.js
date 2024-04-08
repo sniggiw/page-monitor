@@ -33,8 +33,8 @@ function tabInitSelect(request, sender, sendResponse) {
     currentOpenTab.id,
     {
       type: 'initSelect',
-      monitor_url: currentOpenReq.url,
-      monitoring_type: currentOpenReq.monitoring_type,
+      monitor_url: currentOpenReq.monitor_url,
+      monitor_type: currentOpenReq.monitor_type,
     },
     () => {}
   )
