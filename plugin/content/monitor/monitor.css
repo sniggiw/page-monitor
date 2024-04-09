@@ -47,3 +47,7 @@
   display: none;
   pointer-events: none;
 }
+
+.monitor_select_active {
+  border: 2px solid #c0392b !important;
+}
