@@ -2,7 +2,7 @@
 monitor some data in page
 
 ## plugin
-实现 page-monitor 谷歌插件文件夹
+实现 page-monitor 谷歌插件
 
 ## demo-using
-演示使用 page-monitor 谷歌插件的 demo
+使用 demo-using 演示 page-monitor 的使用
