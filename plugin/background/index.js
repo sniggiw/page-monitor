@@ -11,6 +11,9 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     case 'tabInitSelect':
       tabInitSelect(request, sender, sendResponse)
       break
+    case 'openSucceed':
+      handleOpenSucceed(request, sender, sendResponse)
+      break
   }
   return true // 表示异步发送响应
 })
@@ -39,4 +42,25 @@ function tabInitSelect(request, sender, sendResponse) {
     () => {}
   )
   sendResponse({ msg: 'initSelect' })
+}
+
+// 保存监控任务
+function handleOpenSucceed(request, sender, sendResponse) {
+  /**
+   * 1. 获取到 web 页面的 tabId
+   * 2. 利用 chrome.tabs.update 进行页面跳转，跳转回到 web 页面（根据步骤1拿到的 tabId）
+   * 3. 同时给 web 页面的 content 发送通知
+   */
+
+  // 获取到 web 页面的 tabId
+  chrome.tabs.query({ url: currentUrl }, function (tab) {
+    if (tab.length <= 0) return
+    const webTab = tab[0]
+    // 跳转页面，第一个参数是跳转页面的 tabId，第二个参数是设置标签选项卡的属性，我们将其设置为激活状态
+    chrome.tabs.update(webTab.id, { active: true }, function () {
+      chrome.tabs.sendMessage(webTab.id, request, (response) => {})
+    })
+  })
+
+  sendResponse({ msg: 'openSucceed' })
 }

@@ -50,6 +50,9 @@ class Monitor {
     confirmBtn.addEventListener('click', (event) => {
       if (event.target.classList.contains('monitor_confirm_not')) return
       event.stopPropagation()
+
+      // 将 xpath 数据回传给 web 端
+      this.saveHandler()
     })
 
     document.body.appendChild(monitor_panel)
@@ -160,5 +163,24 @@ class Monitor {
 
       if (sibling === element) return this.getXPath(element.parentNode) + '/' + element.tagName.toLowerCase() + '[' + (ix + 1) + ']'
     }
+  }
+
+  saveHandler() {
+    chrome.runtime.sendMessage(
+      {
+        type: 'openSucceed',
+        data: {
+          xpath: this.xpath,
+        },
+      },
+      (e) => {}
+    )
+    setTimeout(() => {
+      try {
+        window.close()
+      } catch (error) {
+        console.log('该页面 window.close 无效')
+      }
+    }, 200)
   }
 }
