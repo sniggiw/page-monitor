@@ -9,7 +9,7 @@ onMounted(() => {
     const type = val.detail.type
     switch (type) {
       case 'openSucceed':
-        xpath.value = val.detail.data.xpath
+        xpath.value = JSON.stringify(val.detail.data.xpath)
     }
   })
 })
@@ -21,7 +21,7 @@ const form = reactive({
   monitor_type: 1,
 })
 
-const xpath = ref(undefined)
+const xpath = ref("")
 
 const onMonitor = () => {
   // 向谷歌插件的 content 发送通知（根据传递的 monitor_url，在新窗口打开）
