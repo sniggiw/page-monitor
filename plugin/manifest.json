@@ -1,25 +1,25 @@
 {
-  "manifest_version": 3,
-  "version": "0.0.1",
-  "name": "page-monitor",
-  "description": "monitor some data in page",
-  "icons": {
-    "16": "./icon/icon16.png",
-    "32": "./icon/icon32.png",
-    "48": "./icon/icon48.png",
-    "64": "./icon/icon64.png"
-  },
-  "permissions": ["tabs"],
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["./content/monitor/monitor.js", "./content/index.js"],
-      "css": ["./content/monitor/monitor.css"],
-      "run_at": "document_idle"
+    "manifest_version": 3,
+    "version": "0.0.1",
+    "name": "page-monitor",
+    "description": "monitor some data in page",
+    "icons": {
+        "16": "./icon/icon16.png",
+        "32": "./icon/icon32.png",
+        "48": "./icon/icon48.png",
+        "64": "./icon/icon64.png"
+    },
+    "permissions": ["tabs"],
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["./content/monitor/monitor.js", "./content/index.js"],
+            "css": ["./content/monitor/monitor.css"],
+            "run_at": "document_idle"
+        }
+    ],
+    "background": {
+        "service_worker": "./background/index.js",
+        "type": "module"
     }
-  ],
-  "background": {
-    "service_worker": "./background/index.js",
-    "type": "module"
-  }
 }

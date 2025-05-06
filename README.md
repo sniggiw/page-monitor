@@ -28,6 +28,8 @@
 
 ```bash
 git clone https://github.com/sniggiw/page-monitor.git
+# or
+git clone git@github.com:sniggiw/page-monitor.git
 ```
 
 2. 在 Chrome 浏览器中打开扩展程序页面

@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import DemoUsing from './components/demo-using.vue'
+import DemoUsing from "./components/demo-using.vue";
 </script>
 
 <template>
-  <DemoUsing />
+    <DemoUsing />
 </template>
 
 <style scoped></style>
